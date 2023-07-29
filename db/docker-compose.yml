@@ -1,0 +1,17 @@
+version: '1.0'
+
+services:
+  pg_server:
+    image: postgres
+    container_name: server
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - /home/theprimate/crafts/nsve-todo/db/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+volumes:
+  postgres:
