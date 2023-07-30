@@ -9,7 +9,6 @@
 	let password: string;
 	let yes: boolean = false;
 	$: type = 'password';
-	import type { goto } from '$app/navigation';
 	$: if (yes) {
 		type = 'text';
 	} else {

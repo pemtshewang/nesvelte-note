@@ -1,4 +1,4 @@
-import { IsString, IsInt, IsDate, IsDateString, IsOptional } from 'class-validator';
+import { IsString, IsInt, IsDate, IsDateString, IsOptional, IsNotEmpty } from 'class-validator';
 import { Prisma } from '@prisma/client';
 
 export class NoteDTO {
@@ -19,9 +19,13 @@ interface noteCreateInterface extends Prisma.NoteCreateInput {
 }
 
 export class NoteCreateDTO implements noteCreateInterface {
+
+  @IsNotEmpty()
   @IsString()
   title: string;
 
+  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   content?: string;
 
